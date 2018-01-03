@@ -1,6 +1,6 @@
-# starter
+# atlas-nuxt
 
-> Nuxt.js project
+> atlassian video archive
 
 ## Build Setup
 
