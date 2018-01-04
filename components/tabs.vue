@@ -55,5 +55,9 @@
         border-color: #dee2e6 #dee2e6 #fff!important;
         color: #989898;
     }
-
+    @media (max-width: 767px) {
+         .nav-link {
+             padding:.5rem .7rem!important;
+         }
+    }
 </style>

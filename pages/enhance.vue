@@ -5,11 +5,10 @@
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <div class="title-list">
-                            <p class="track-title">Innovate</p>
+                            <p class="track-title">Enhance</p>
                             <div class="nav flex-column" role="tablist" aria-orientation="vertical">
-                                <a v-for="(innovate, index) in filteredTrackInnovate" class="nav-link" :class="{ 'active': index === 0 }" :id="'tab'+innovate.Id" :href="'#'+innovate.Id" data-toggle="pill" role="tab" :aria-controls="innovate.Id">
-                                    {{ innovate.Title }}
-                                <div class="speaker" v-for="speaker in innovate.Speakers">
+                                <a v-for="(enhance, index) in filteredTrackEnhance" class="nav-link" :class="{ 'active': index === 0 }" :id="'tab'+enhance.Id" :href="'#'+enhance.Id" data-toggle="pill" role="tab" :aria-controls="enhance.Id">{{ enhance.Title }}
+                                    <div class="speaker" v-for="speaker in enhance.Speakers">
                                     {{speaker.FirstName}} {{speaker.LastName}}, {{speaker.Company}}
                                 </div>
                                 </a>
@@ -18,15 +17,15 @@
                     </div>
                     <div class="col-12 col-md-8">
                         <div class="tab-content">
-                            <div v-for="(innovate, index) of filteredTrackInnovate" class="tab-pane fade" :class="{ 'show active': index === 0 }" :id="innovate.Id" role="tabpanel" :aria-labelledby="'tab'+innovate.Id">
-                                <h1>{{innovate.Title}}</h1>
-                                <div v-for="speaker in innovate.Speakers">
+                            <div v-for="(enhance, index) of filteredTrackEnhance" class="tab-pane fade" :class="{ 'show active': index === 0 }" :id="enhance.Id" role="tabpanel" :aria-labelledby="'tab'+enhance.Id">
+                                <h1>{{enhance.Title}}</h1>
+                                <div v-for="speaker in enhance.Speakers">
                                 <p class="font-weight-bold">{{speaker.FirstName}} {{speaker.LastName}}, {{speaker.Company}}</p>
                                 </div>
-                                <p>{{innovate.Description}}</p>
+                                <p>{{enhance.Description}}</p>
                                 <p><a href="#">See the Q&A from this talk and others here.</a></p>
                                 <h3>About the Speaker</h3>
-                                <div v-for="speaker in innovate.Speakers">
+                                <div v-for="speaker in enhance.Speakers">
                                     <p class="font-weight-bold">{{speaker.FirstName}} {{speaker.LastName}}, {{speaker.Company}}</p>
                                     <p class="speaker">{{speaker.Biography}}</p>
                                 </div>
@@ -73,13 +72,15 @@
     import {mapState} from "vuex"
 
     export default {
+
         computed: {
+
             ItemsArray() {
                 return this.$store.state.Items;
             },
-            filteredTrackInnovate() {
+            filteredTrackEnhance() {
                 return this.ItemsArray.filter(ItemsArray => {
-                    return ItemsArray.Track.Title == "Innovate"
+                    return ItemsArray.Track.Title == "Enhance"
                 })
 
             }
